@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Geodo Critters — demo</title>
+<link rel="icon" href="assets/geodo-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+<style>
+  body{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:40px 20px}
+  .hub{max-width:720px;width:100%}
+  .hub-head{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+  .hub-logo{width:42px;height:42px;border-radius:11px;overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+  .hub-logo img{width:100%;height:100%;object-fit:contain}
+  .hub h1{font-size:30px;font-weight:850;letter-spacing:-.03em}
+  .hub .lede{color:var(--ink-2);font-size:15px;line-height:1.5;margin:10px 0 26px;max-width:560px}
+  .links{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .lcard{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:14px;
+    padding:16px 18px;box-shadow:var(--shadow);transition:transform .16s,box-shadow .16s}
+  .lcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-h)}
+  .lcard .em{font-size:26px}
+  .lcard b{font-size:15px;font-weight:750;display:block}
+  .lcard span{font-size:12.5px;color:var(--ink-2)}
+  .full{grid-column:1/-1}
+  .note{margin-top:22px;font-size:12.5px;color:var(--ink-3);line-height:1.6}
+</style>
+</head>
+<body>
+  <div class="hub">
+    <div class="hub-head">
+      <div class="hub-logo"><img src="assets/geodo-logo.png" alt="Geo"></div>
+      <h1>Channel Critters</h1>
+    </div>
+    <p class="lede">A UI concept where every outreach channel is its own animal. The LinkedIn ape echoes Geo's logo. Pick a channel, then watch your channel's creature stroll the chat floor — click it to say hi.</p>
+    <div class="links">
+      <a class="lcard full" href="channels.html"><span class="em">🐾</span><div><b>Choose a channel</b><span>All six creatures, perched and waving</span></div></a>
+      <a class="lcard" href="campaign-linkedin.html"><span class="em">🦍</span><div><b>LinkedIn campaign</b><span>Apollo the Ape walks the floor</span></div></a>
+      <a class="lcard" href="campaign-email.html"><span class="em">🐰</span><div><b>Email campaign</b><span>Biscuit the Rabbit hops along</span></div></a>
+      <a class="lcard" href="campaign-agentmail.html"><span class="em">🐍</span><div><b>AgentMail campaign</b><span>Slinky the Snake slithers</span></div></a>
+    </div>
+    <p class="note">Pure HTML / CSS / SVG / JS — no backend. A UI prototype, not connected to any product.</p>
+  </div>
+</body>
+</html>

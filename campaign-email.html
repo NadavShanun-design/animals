@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Email campaign — Geodo</title>
+<link rel="icon" href="assets/geodo-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-channel="email">
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-top"><div class="sb-logo"><img src="assets/geodo-logo.png" alt="Geo"></div><div class="sb-brand">Geo</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link" href="channels.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back to channels</a>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
+      <div class="sb-link active"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Campaigns</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts</div>
+      <div class="sb-sec">This campaign</div>
+      <div class="sb-link active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>RevOps Leaders</div>
+    </nav>
+    <div class="sb-bottom"><div class="sb-av">MR</div><div class="sb-user"><b>Marcus Reyes</b><span>marcus@brightwave.io</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <span class="chan-pill" id="pill"><span class="dot"><svg viewBox="0 0 24 24"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v.4l-10 6.1L2 5.9v-.4zM2 8.2V18.5A1.5 1.5 0 0 0 3.5 20h17a1.5 1.5 0 0 0 1.5-1.5V8.2l-9.48 5.78a1 1 0 0 1-1.04 0z"/></svg></span>Email · Biscuit the Rabbit 🐰</span>
+      <div class="sub" style="margin-left:auto">Step 1 of 4 · Channel</div>
+    </div>
+
+    <div class="content" style="display:flex;flex-direction:column;padding-bottom:0">
+      <div class="builder">
+        <div class="chat" id="chat">
+          <div class="msg geo"><div class="who"><img src="assets/geodo-logo.png"></div><div class="bubble">Email campaign time. <b>Biscuit</b> fires off a personalized sequence with smart follow-ups. Who’s the audience?</div></div>
+          <div class="msg me"><div class="who">MR</div><div class="bubble">RevOps leaders at mid-market SaaS.</div></div>
+          <div class="msg geo"><div class="who"><img src="assets/geodo-logo.png"></div><div class="bubble">Got it — a 4-step sequence where each follow-up adapts to opens &amp; replies. <b>3,210</b> contacts queued. Biscuit’s hopping around below — click to say hi 👇
+            <div class="chips"><span class="chip">Step 1 · Intro</span><span class="chip">Step 2 · Value (+3d)</span><span class="chip">Step 3 · Case study (+4d)</span><span class="chip">Step 4 · Break-up (+5d)</span></div>
+          </div></div>
+        </div>
+
+        <div class="floor-wrap">
+          <div class="critter-floor" id="floor"><div class="floor-hint">👇 Biscuit the Rabbit is hopping through your campaign — click to say hi</div></div>
+        </div>
+        <div class="composer">
+          <button class="mic">🎙</button>
+          <textarea rows="1" placeholder="Tell Biscuit what to tweak…"></textarea>
+          <button class="send" id="send">Send</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="critters.js"></script>
+<script src="page-init.js"></script>
+</body>
+</html>

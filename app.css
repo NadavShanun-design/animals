@@ -1,0 +1,160 @@
+/* ═══ Geodo Critters demo — shared chrome + critter animation ═══ */
+:root{
+  --bg:#f0f0f3; --surface:#fff; --ink:#1c2024; --ink-2:#60646c; --ink-3:#8b8f97;
+  --border:#e6e7eb; --sidebar:#1a1a1a; --sidebar-2:#2a2a2a;
+  --radius:16px; --shadow:rgba(17,24,39,.06) 0 4px 16px, rgba(17,24,39,.04) 0 1px 3px;
+  --shadow-h:rgba(17,24,39,.12) 0 18px 44px, rgba(17,24,39,.08) 0 3px 10px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* ── Layout ── */
+.app{display:flex;height:100vh;width:100vw;overflow:hidden}
+.sidebar{width:248px;min-width:248px;background:var(--sidebar);color:#e0e0e0;display:flex;flex-direction:column;flex-shrink:0}
+.sb-top{display:flex;align-items:center;gap:10px;padding:18px 16px 14px}
+.sb-logo{width:30px;height:30px;border-radius:8px;overflow:hidden;background:#fff;flex-shrink:0}
+.sb-logo img{width:100%;height:100%;object-fit:contain}
+.sb-brand{font-weight:800;font-size:17px;color:#fff}
+.sb-nav{padding:6px 10px;display:flex;flex-direction:column;gap:2px;flex:1;overflow:auto}
+.sb-link{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:9px;color:#b8babf;font-size:14px;font-weight:550;cursor:pointer;transition:.15s}
+.sb-link svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sb-link:hover{background:#242424;color:#fff}
+.sb-link.active{background:var(--sidebar-2);color:#fff}
+.sb-sec{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#6a6d72;padding:14px 14px 6px}
+.sb-bottom{margin-top:auto;border-top:1px solid #2a2a2a;padding:12px 14px;display:flex;align-items:center;gap:10px}
+.sb-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#0d74ce,#7c3aed);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.sb-user{min-width:0}
+.sb-user b{display:block;font-size:13px;color:#fff;font-weight:650}
+.sb-user span{display:block;font-size:11.5px;color:#8b8f97;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--surface)}
+.topbar{display:flex;align-items:center;gap:14px;padding:18px 28px;border-bottom:1px solid var(--border)}
+.topbar h1{font-size:20px;font-weight:800;letter-spacing:-.02em}
+.topbar .sub{font-size:13px;color:var(--ink-2)}
+.content{flex:1;overflow:auto;padding:26px 28px 0}
+
+/* ── Stepper ── */
+.stepper{display:flex;align-items:center;gap:8px;margin-bottom:22px}
+.step{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--border);border-radius:9999px;padding:7px 14px;font-size:13px;font-weight:650;color:var(--ink-3)}
+.step .num{width:20px;height:20px;border-radius:50%;background:#eceef1;color:var(--ink-2);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.step.active{background:#101113;border-color:#101113;color:#fff}
+.step.active .num{background:#fff;color:#101113}
+.step.done{color:#16a34a;border-color:#bbf0cd;background:#f0fdf4}
+.step.done .num{background:#16a34a;color:#fff}
+.step-sep{width:18px;height:2px;background:var(--border);border-radius:2px}
+
+/* ── Channel grid ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:26px 20px;padding-top:30px;padding-bottom:48px}
+.chan-card{position:relative;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px 20px;box-shadow:var(--shadow);transition:transform .18s ease,box-shadow .18s ease,border-color .18s;cursor:pointer;overflow:visible}
+.chan-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
+.chan-perch{position:absolute;top:-58px;left:50%;transform:translateX(-50%);width:128px;height:96px;display:flex;align-items:flex-end;justify-content:center;pointer-events:auto;z-index:2}
+.chan-head{display:flex;align-items:center;gap:10px;margin-top:8px}
+.chan-badge{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.chan-badge svg{width:19px;height:19px;fill:#fff}
+.chan-card h3{font-size:16px;font-weight:750}
+.chan-card .mascot{font-size:12px;font-weight:600;color:var(--ink-3);margin-top:1px}
+.chan-card p{font-size:13px;color:var(--ink-2);line-height:1.45;margin:12px 0 16px;min-height:38px}
+.chan-go{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:750;padding:8px 14px;border-radius:9px;color:#fff}
+.chan-meta{position:absolute;top:16px;right:16px;font-size:11px;font-weight:700;color:var(--ink-3);background:#f3f4f6;border-radius:9999px;padding:4px 9px}
+
+/* ── Campaign builder (chat) ── */
+.builder{display:flex;flex-direction:column;height:100%}
+.chan-pill{display:inline-flex;align-items:center;gap:9px;padding:6px 14px 6px 6px;border-radius:9999px;color:#fff;font-weight:700;font-size:13.5px}
+.chan-pill .dot{width:26px;height:26px;border-radius:9999px;background:rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center}
+.chan-pill .dot svg{width:15px;height:15px;fill:#fff}
+.chat{flex:1;overflow:auto;padding:8px 0 6px;max-width:760px;margin:0 auto;width:100%}
+.msg{display:flex;gap:12px;margin:18px 0;align-items:flex-end}
+.msg .who{width:30px;height:30px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;overflow:hidden}
+.msg .who img{width:100%;height:100%;object-fit:cover}
+.bubble{padding:12px 15px;border-radius:14px;font-size:14px;line-height:1.5;max-width:78%}
+.msg.geo .who{background:#101113}
+.msg.geo .who img{padding:4px}
+.msg.geo .bubble{background:#f3f4f6;color:#1c2024;border-bottom-left-radius:5px}
+.msg.me{flex-direction:row-reverse}
+.msg.me .who{background:linear-gradient(135deg,#0d74ce,#7c3aed);color:#fff}
+.msg.me .bubble{background:#101113;color:#fff;border-bottom-right-radius:5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 4px}
+.chip{font-size:12.5px;font-weight:650;border:1px solid var(--border);border-radius:9999px;padding:7px 13px;background:#fff;color:var(--ink-2)}
+
+/* ── Critter floor above composer ── */
+.floor-wrap{max-width:760px;margin:0 auto;width:100%}
+.critter-floor{position:relative;height:128px;border-radius:14px 14px 0 0;
+  background:linear-gradient(180deg,transparent,rgba(0,0,0,.025));overflow:hidden}
+.critter-floor::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--border)}
+.floor-hint{position:absolute;top:8px;left:0;right:0;text-align:center;font-size:11.5px;color:var(--ink-3);pointer-events:none}
+.composer{max-width:760px;margin:0 auto 22px;width:100%;display:flex;gap:10px;align-items:flex-end;
+  border:1px solid var(--border);border-top:0;border-radius:0 0 14px 14px;padding:12px;background:#fff}
+.composer textarea{flex:1;border:0;resize:none;font:inherit;font-size:14px;outline:none;max-height:90px}
+.composer .mic{width:36px;height:36px;border-radius:9px;border:1px solid var(--border);background:#fff;color:var(--ink-2);cursor:pointer}
+.composer .send{padding:10px 18px;border-radius:9px;border:0;color:#fff;font-weight:700;font-size:14px;cursor:pointer}
+
+/* ═══════════ CRITTER ANIMATION ═══════════ */
+.critter-wrap{position:absolute;bottom:0;left:0;will-change:transform}
+.critter-hop{transform-origin:bottom center}
+.critter{width:100%;cursor:pointer;user-select:none}
+.bust.critter{width:100%}
+.c-svg{width:100%;height:auto;display:block;overflow:visible}
+.critter.face-left .c-svg{transform:scaleX(-1)}
+
+/* animated parts pivot around their own box */
+.leg,.arm,.ear,.tail,.wing,.eye,.seg{transform-box:fill-box}
+.leg{transform-origin:50% 12%}
+.arm{transform-origin:50% 12%}
+.ear{transform-origin:50% 92%}
+.tail{transform-origin:88% 55%}
+.wing{transform-origin:78% 30%}
+.eye{transform-origin:50% 50%}
+
+/* eyes blink always */
+.eye{animation:c-blink 4.2s infinite}
+.critter:nth-of-type(odd) .eye{animation-delay:.8s}
+@keyframes c-blink{0%,93%,100%{transform:scaleY(1)}96.5%{transform:scaleY(.12)}}
+
+/* walking gait — diagonal leg pairs */
+.critter.moving .leg-fn,.critter.moving .leg-bf{animation:c-legA .46s infinite ease-in-out}
+.critter.moving .leg-ff,.critter.moving .leg-bn,.critter.moving .arm{animation:c-legB .46s infinite ease-in-out}
+.critter.moving .c-body{animation:c-bob .46s infinite ease-in-out}
+.critter.moving .tail{animation:c-sway .62s infinite ease-in-out}
+@keyframes c-legA{0%,100%{transform:rotate(22deg)}50%{transform:rotate(-22deg)}}
+@keyframes c-legB{0%,100%{transform:rotate(-22deg)}50%{transform:rotate(22deg)}}
+@keyframes c-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes c-sway{0%,100%{transform:rotate(-9deg)}50%{transform:rotate(10deg)}}
+
+/* snake slither (no legs) — travelling wave across segments */
+.critter.moving.gait-slither .seg{animation:c-slither .9s infinite ease-in-out;animation-delay:calc(var(--i) * -0.11s)}
+@keyframes c-slither{0%,100%{transform:translateY(-5px)}50%{transform:translateY(5px)}}
+.snake .tongue{transform-box:fill-box;transform-origin:0% 50%;animation:c-tongue 1.4s infinite}
+@keyframes c-tongue{0%,82%,100%{transform:scaleX(.3);opacity:0}86%,95%{transform:scaleX(1);opacity:1}}
+
+/* bird hop while moving */
+.critter-hop.hopping{animation:c-hop .5s infinite ease-in-out}
+@keyframes c-hop{0%,100%{transform:translateY(0)}42%{transform:translateY(-15px)}}
+
+/* click → jump */
+.critter-hop.jump{animation:c-jump .6s ease}
+@keyframes c-jump{0%{transform:translateY(0)}28%{transform:translateY(-28px)}52%{transform:translateY(0)}72%{transform:translateY(-9px)}100%{transform:translateY(0)}}
+
+/* speech bubble */
+.critter-say{position:absolute;left:50%;bottom:calc(100% - 6px);transform:translate(-50%,8px) scale(.9);
+  background:#101113;color:#fff;font-size:12.5px;font-weight:600;line-height:1.35;padding:8px 12px;border-radius:12px;
+  white-space:nowrap;box-shadow:var(--shadow);opacity:0;transition:.26s cubic-bezier(.2,.9,.3,1.3);pointer-events:none;z-index:5}
+.critter-say::after{content:"";position:absolute;top:100%;left:50%;transform:translateX(-50%);border:7px solid transparent;border-top-color:#101113}
+.critter-say.show{opacity:1;transform:translate(-50%,0) scale(1)}
+
+/* ── busts on channel cards: idle bob + blink, wave on hover ── */
+.bust .c-body{transform-origin:bottom center}
+.critter.idle .c-body{animation:c-bobIdle 2.6s infinite ease-in-out}
+.critter.idle .tail{animation:c-sway 1.8s infinite ease-in-out}
+.critter.idle.gait-slither .seg{animation:c-slither 1.6s infinite ease-in-out;animation-delay:calc(var(--i) * -0.16s)}
+.critter.idle .wing{animation:c-flap 1.3s infinite ease-in-out}
+@keyframes c-bobIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes c-flap{0%,100%{transform:rotate(0)}50%{transform:rotate(-20deg)}}
+.critter.wave{animation:c-waveHop .6s ease}
+.critter.wave .arm,.critter.wave .ear{animation:c-armWave .6s ease}
+@keyframes c-waveHop{0%{transform:translateY(0) rotate(0)}28%{transform:translateY(-12px) rotate(-4deg)}60%{transform:translateY(0) rotate(3deg)}100%{transform:translateY(0)}}
+@keyframes c-armWave{0%,100%{transform:rotate(0)}50%{transform:rotate(-32deg)}}
+
+@media (prefers-reduced-motion:reduce){.critter *,.critter-hop{animation:none!important}}

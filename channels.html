@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>New campaign · Choose a channel — Geodo</title>
+<link rel="icon" href="assets/geodo-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-mode="channels">
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-top"><div class="sb-logo"><img src="assets/geodo-logo.png" alt="Geo"></div><div class="sb-brand">Geo</div></div>
+    <nav class="sb-nav">
+      <div class="sb-link"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
+      <div class="sb-link active"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Campaigns</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><polygon points="12 2 15 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg>Flows</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>LinkedIn Inbox</div>
+      <div class="sb-sec">Active campaigns</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>Q2 SaaS Founders</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>RevOps Leaders</div>
+    </nav>
+    <div class="sb-bottom"><div class="sb-av">MR</div><div class="sb-user"><b>Marcus Reyes</b><span>marcus@brightwave.io</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div><h1>New campaign</h1><div class="sub">Pick a channel — each one comes with its own creature 🐾</div></div>
+    </div>
+    <div class="content">
+      <div class="stepper">
+        <div class="step active"><span class="num">1</span> Channel</div><div class="step-sep"></div>
+        <div class="step"><span class="num">2</span> Contacts</div><div class="step-sep"></div>
+        <div class="step"><span class="num">3</span> Personality</div><div class="step-sep"></div>
+        <div class="step"><span class="num">4</span> Send</div>
+      </div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </main>
+</div>
+
+<script src="critters.js"></script>
+<script src="page-init.js"></script>
+</body>
+</html>

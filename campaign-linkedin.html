@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LinkedIn campaign — Geodo</title>
+<link rel="icon" href="assets/geodo-logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="app.css">
+</head>
+<body data-channel="linkedin">
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-top"><div class="sb-logo"><img src="assets/geodo-logo.png" alt="Geo"></div><div class="sb-brand">Geo</div></div>
+    <nav class="sb-nav">
+      <a class="sb-link" href="channels.html"><svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>Back to channels</a>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
+      <div class="sb-link active"><svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Campaigns</div>
+      <div class="sb-link"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts</div>
+      <div class="sb-sec">This campaign</div>
+      <div class="sb-link active"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/></svg>Series A Founders</div>
+    </nav>
+    <div class="sb-bottom"><div class="sb-av">MR</div><div class="sb-user"><b>Marcus Reyes</b><span>marcus@brightwave.io</span></div></div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <span class="chan-pill" id="pill"><span class="dot"><svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.2 8h4.6v16H.2zM8 8h4.4v2.2h.06c.62-1.16 2.13-2.4 4.39-2.4 4.7 0 5.15 3.04 5.15 7v9.2H17.4v-8.16c0-1.95-.04-4.45-2.72-4.45-2.72 0-3.14 2.12-3.14 4.31V24H8z"/></svg></span>LinkedIn · Apollo the Ape 🦍</span>
+      <div class="sub" style="margin-left:auto">Step 1 of 4 · Channel</div>
+    </div>
+
+    <div class="content" style="display:flex;flex-direction:column;padding-bottom:0">
+      <div class="builder">
+        <div class="chat" id="chat">
+          <div class="msg geo"><div class="who"><img src="assets/geodo-logo.png"></div><div class="bubble">Let’s build your <b>LinkedIn</b> campaign. <b>Apollo</b> will send a personalized connection note, then a value message, then a soft demo ask. Who should he reach?</div></div>
+          <div class="msg me"><div class="who">MR</div><div class="bubble">US-based Series A B2B SaaS founders.</div></div>
+          <div class="msg geo"><div class="who"><img src="assets/geodo-logo.png"></div><div class="bubble">On it. I drafted the opener and found <b>1,284</b> matching founders. Apollo’s pacing the floor below — click him to say hi while I finish the sequence 👇
+            <div class="chips"><span class="chip">Personalized connect note</span><span class="chip">Value message</span><span class="chip">Soft demo ask</span><span class="chip">Daily cap · 40</span></div>
+          </div></div>
+        </div>
+
+        <div class="floor-wrap">
+          <div class="critter-floor" id="floor"><div class="floor-hint">👇 Apollo the Ape is walking your campaign — click him to say hi</div></div>
+        </div>
+        <div class="composer">
+          <button class="mic">🎙</button>
+          <textarea rows="1" placeholder="Tell Apollo what to tweak…"></textarea>
+          <button class="send" id="send">Send</button>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="critters.js"></script>
+<script src="page-init.js"></script>
+</body>
+</html>
